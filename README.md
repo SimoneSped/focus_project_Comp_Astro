@@ -1,4 +1,6 @@
-# focus_project_Comp_Astro
+# **Focus Project for 'Methods of Computational Astrophysics'**
+## SoSe 25, Universität Wien
+## Simone Spedicato
 
 Goal: Compare different PRNGs in terms of statistical properties and performance, and demonstrate their effect in a simulation (e.g., Monte Carlo or astrophysical model).
 
