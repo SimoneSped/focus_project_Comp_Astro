@@ -43,7 +43,13 @@ def general_tests(prng_func, num_samples=100000, plot=False):
     print("All tests passed!")
 
 def estimate_period(prng_func, max_iter=10**6):
+    """
+    Estimate the period of a PRNG by checking for cycles.
+    prng_func: function with no arguments returning a random float in [0,1).
+    max_iter: maximum number of iterations to check for cycles
+    """
     seen = set()
+    # simply checks for repeated values
     for i in range(max_iter):
         x = prng_func()
         if x in seen:
@@ -79,14 +85,6 @@ def birthday_spacings_test(prng_func, N=10000, bins=100):
     print(f"Total unique spacings: {total_unique_spacings}")
     print(f"Total collisions: {collisions}")
 
-    # Plot histogram of quantized spacings
-    plt.bar(spacing_counts.keys(), spacing_counts.values())
-    plt.title("Quantized Spacing Frequencies")
-    plt.xlabel("Spacing bin")
-    plt.ylabel("Count")
-    plt.show()
-    
-    # Interpret
     if collisions == 0:
         print("No repeated spacings detected (good).")
     elif collisions < 5:
