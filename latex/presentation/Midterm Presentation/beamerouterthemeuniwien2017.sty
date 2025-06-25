@@ -1,0 +1,767 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%  Die vorliegenden LaTeX-Folien stehen MitarbeiterInnen und Studierenden der Universität Wien
+%%  zur Verfügung und sind ausschließlich zur Verwendung in Forschung und Lehre der Universität  
+%%  Wien vorgesehen. Das Copyright der LaTeX-Vorlagen liegt bei der Universität Wien.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\mode<presentation>
+
+%%=====================%%
+%% Define fonts, itemize and spacings %%
+%%=====================%%
+
+\setbeamersize{text margin left=.5cm}
+
+\setbeamerfont*{title}{series=\bf,size={\fontsize{15.5}{17}}}
+\setbeamerfont*{subtitle}{size={\fontsize{8.5}{11}}}
+\setbeamerfont*{author}{series=\bf,size={\fontsize{8.5}{11}}}
+
+\setbeamerfont*{normal text}{size={\fontsize{10}{12}}}
+\AtBeginDocument{\usebeamerfont{normal text}}
+\setbeamerfont*{structure}{size={\fontsize{9.5}{12}}}
+\setbeamerfont*{alerted text}{size={\fontsize{9.5}{12}}}
+\setbeamerfont*{example text}{size={\fontsize{9.5}{12}}}
+\setbeamerfont*{block title}{size={\fontsize{9.5}{12}}, series = \bf}
+\setbeamerfont*{block body}{size={\fontsize{9.5}{12}}}
+
+\setbeamerfont*{section in toc}{size={\fontsize{13}{15}}, series = \bf}
+\setbeamerfont*{subsection in toc}{size={\fontsize{8}{11}}}
+\setbeamerfont*{subsubsection in toc}{size={\fontsize{8}{11}}}
+
+\setbeamerfont*{headline}{shape = \upshape,size={\fontsize{6.5}{8}}}
+\setbeamerfont*{footline}{size={\fontsize{5}{5}}}
+\setbeamerfont*{frametitle}{series=\bf,size={\fontsize{13}{12}}}
+\setbeamerfont*{caption}{size={\fontsize{6.5}{6.5}}}
+
+\setlength{\leftmargini}{0.33cm}
+\setlength{\leftmarginii}{0.3cm}
+\setlength{\leftmarginiii}{0.42cm}
+
+\setbeamertemplate{itemize item}{\scriptsize\raise1pt\hbox{\textbullet}}
+\setbeamertemplate{itemize subitem}{ \tikz[baseline=0cm]\draw[black,fill=white] (0,0.1) circle (0.04);}
+\setbeamertemplate{itemize subsubitem}{\scriptsize\raise0pt\hbox{$-$}}
+
+\setbeamerfont*{itemize/enumerate body}{size={\fontsize{9.5}{12}}}
+\setbeamerfont*{itemize/enumerate subbody}{size={\fontsize{9.5}{12}}}
+\setbeamerfont*{itemize/enumerate subsubbody}{size={\fontsize{9}{11}}}
+
+%% re-define itemize spacings %%
+\renewcommand{\itemize}[1][]%
+{
+ 	\beamer@ifempty{#1}{}{\def\beamer@defaultospec{#1}}%
+ 	\ifnum \@itemdepth >2\relax\@toodeep\else
+   		\advance\@itemdepth\@ne
+   		\beamer@computepref\@itemdepth% sets \beameritemnestingprefix
+    		\usebeamerfont{itemize/enumerate \beameritemnestingprefix body}%
+    		\usebeamercolor[fg]{itemize/enumerate \beameritemnestingprefix body}%
+    		\usebeamertemplate{itemize/enumerate \beameritemnestingprefix body begin}%
+    		\list{\usebeamertemplate{itemize \beameritemnestingprefix item}}
+      		{%
+        			\setlength\topsep{0pt}%NEW
+        			\setlength\partopsep{0pt}%NEW
+        			\setlength\itemsep{3pt}%NEW
+        			\def\makelabel##1{%
+          				{%
+            				\hss\llap{{%
+               				\usebeamerfont*{itemize \beameritemnestingprefix item}%
+                				\usebeamercolor[fg]{itemize \beameritemnestingprefix item}##1}}%
+          				}%
+        			}%
+      		}
+ 	\fi%
+ 	\beamer@cramped%
+  	\raggedright%
+  	\beamer@firstlineitemizeunskip%
+}
+
+
+%%==========================%%
+%% Define headline with section title (optional) %%
+%%==========================%%
+
+\ifthenelse{\isundefined{\sectionHeader}}{}
+{
+	\defbeamertemplate*{headline}{uniwien2017}[1][left]
+	{%	
+		\ifnum\thesection>0
+			
+			\ifthenelse{\thepage>\inserttotalframenumber}{}
+			{
+				\begin{minipage}[t]{0.96\textwidth}
+            				\usebeamerfont{headline}
+					\flushright
+					\textcolor{uniwienblue}
+					{
+						\sectionHeader~\thesection.~\insertsection
+					}
+					\par
+				\end{minipage}
+			}
+
+			% Special form of vertical alignement due to error issues for variable headers/footers
+			\vspace*{-1.15cm}
+
+		\fi
+	}
+}
+
+
+%%==========%%
+%% Define footline %%
+%%==========%%
+
+\defbeamertemplate*{footline}{uniwien2017}[1][left]
+{%
+	\ifnum\c@framenumber>1
+		\vspace{-0.45cm}
+
+		\begin{minipage}[c]{\textwidth}
+            		\usebeamerfont{footline}
+			\begin{tabular}{p{0.13\textwidth} p{0.67\textwidth} p{0.1\textwidth}}
+				\textcolor{uniwienblack}
+				{	
+					\hspace*{.26cm}
+					\insertdate{}
+				}
+				& \textcolor{black}
+				{
+					\ifthenelse{\isundefined{\textFooter}}{}
+					{
+						\textFooter
+					}
+				}
+				&  \multicolumn{1}{r}
+				{
+					\textcolor{black}
+					{
+						\ifthenelse{\isundefined{\slideNumberLabelFooter}}{}
+						{
+							\slideNumberLabelFooter~\insertframenumber{}
+							\hspace*{.2cm}
+						}
+					}
+				}\\
+				&&\\ %% increases footline height
+				&&\\ %% increases footline height
+				&&   %% increases footline height
+			\end{tabular}
+			\par
+		\end{minipage}
+
+	\fi
+}
+
+
+%%============%%
+%% Set frame title style %%
+%%============%%
+
+\defbeamertemplate*{frametitle}{uniWienDefault}[1][left]
+{
+	\begin{minipage}[t][.22\textheight][b]{\textwidth}
+            	\usebeamerfont{frametitle}
+		\textcolor{uniwienblue}
+           	\insertframetitle \strut\par
+	\end{minipage}
+
+	\vspace{-.2cm}
+}
+
+
+%%=======================%%
+%% Define new frame style environments %%
+%%=======================%%
+
+%% used for different skips if frame title is empty %%
+\newlength{\myskip}
+\newlength{\myskipp}
+\setlength{\myskip}{0pt}
+\setlength{\myskipp}{0pt}
+
+%% classical text frame with width selection and reference line %%
+\NewEnviron{textFrame}[3]%
+{%
+
+	%%=====================================%%
+	%% 1. argument: frame title (if empty, text box is increased)							
+	%% 2. argument: choose text width (number between 0 and 1)
+	%% 3. argument: reference line text on bottom of page
+	%% body: text/graphics/formulas/etc. for text box
+	%%=====================================%%
+
+	\begin{frame}{#1}
+
+		%% if no frame title is given, text height is increased %%
+		\ifx\insertframetitle\@empty
+			\vspace{.15\textheight}
+			\ifthenelse{\lengthtest{\beamer@paperheight=9cm}}
+			{
+				\setlength{\myskip}{.12\textheight} %% for 16:9
+			}{
+				\setlength{\myskip}{.116\textheight} %% for 4:3
+			}
+		\else
+			\setlength{\myskip}{0pt}
+		\fi
+
+		\begin{columns}[T]
+				
+			\begin{column}{#2\textwidth}
+				\begin{minipage}[t][\dimexpr(.575\textheight+\myskip)]{\linewidth}
+					\BODY
+				\end{minipage}
+
+				\vspace{-.022\textheight}
+
+				\begin{minipage}[t][.05\textheight]{\linewidth}
+					\usebeamerfont{caption}
+					\mbox{#3}
+				\end{minipage}
+			\end{column}
+
+			\begin{column}{\dimexpr(\textwidth-#2\textwidth)}
+			\end{column}
+
+		\end{columns}
+
+	\end{frame}
+}
+
+
+%% text frame two equally wide colums where either headlines for both columns on top or reference lines on bottom can be given %%
+\NewEnviron{textFrame2}[7]%
+{%
+
+	%%=====================================%%
+	%% 1. argument: frame title (if empty, text box is increased)									
+	%% 2. argument: headline text for 1. column (if empty, then reference lines in bottom will be printed)
+	%% 3. argument: text, formulas, etc. for 1. column
+	%% 4. argument: reference line text for 1. column on bottom of page (only printed if 2. argument is empty)
+	%% 5. argument: headline text for 2. column (not printed if 2. argument is empty)
+	%% 6. argument: text, formulas, etc. for 2. column
+	%% 7. argument: reference line text for 2. column on bottom of page (only printed if 2. argument is empty)
+	%% body: ignored in this frame environment
+	%%=====================================%%
+
+	\begin{frame}{#1}
+
+		%% if no frame title is given, text height is increased %%
+		\ifx\insertframetitle\@empty
+			\vspace{.15\textheight}
+			\ifthenelse{\lengthtest{\beamer@paperheight=9cm}}
+			{
+				\setlength{\myskip}{.12\textheight} %% for 16:9
+			}{
+				\setlength{\myskip}{.116\textheight} %% for 4:3
+			}
+		\else
+			\setlength{\myskip}{0pt}
+		\fi
+
+
+		\ifthenelse{\equal{#2}{}}{
+		%% if no headline for 1. column is given, print column and reference lines %%
+
+			\begin{columns}[T]
+				
+				\begin{column}{\dimexpr(\textwidth/2)}
+					\begin{minipage}[t][.575\textheight]{\linewidth}
+						#3
+					\end{minipage}
+
+					\vspace{-.02\textheight}
+
+					\begin{minipage}[t][.05\textheight]{\linewidth}
+						\usebeamerfont{caption}
+						\mbox{#4}
+					\end{minipage}					
+        				\end{column}   
+
+				\begin{column}{\dimexpr(\textwidth/2)}
+					\begin{minipage}[t][.575\textheight]{\linewidth}
+						#6
+					\end{minipage}
+
+					\vspace{-.02\textheight}
+
+					\begin{minipage}[t][.05\textheight]{\linewidth}
+						\usebeamerfont{caption}
+						\mbox{#7}
+					\end{minipage}	
+      				\end{column}    	
+	
+    			\end{columns}
+
+		}{
+		%% if headline for 1. column is given, print headline  and column (no reference lines) %%
+		
+			\vspace{-.3cm}
+			\begin{columns}[T]
+					
+				\begin{column}{\dimexpr(\textwidth/2)}
+           				\begin{minipage}[c][.12\textheight][b]{\linewidth}
+						\usebeamerfont{block title}
+						#2
+					\end{minipage}
+
+					\vspace{.04\textheight}
+
+					\begin{minipage}[t][\dimexpr(.45\textheight)]{\linewidth}
+						#3
+					\end{minipage}
+        				\end{column}   
+
+				\begin{column}{\dimexpr(\textwidth/2)}			
+           				\begin{minipage}[c][.12\textheight][b]{\linewidth}
+						\usebeamerfont{block title}
+						#5
+					\end{minipage}
+
+					\vspace{.04\textheight}
+
+					\begin{minipage}[t][\dimexpr(.45\textheight)]{\linewidth}
+						#6
+					\end{minipage}
+        				\end{column}    	
+	
+    			\end{columns}
+
+		}
+
+	\end{frame}
+
+}
+
+
+%% frame with one graphic, reference/caption line on bottom and (optional) text; location, text width and frame title width can be chosen %%
+\NewEnviron{graphicsFrame}[6]%
+{%
+
+	%%=====================================%%
+	%% 1. argument: frame title (if empty, text box is increased)								
+	%% 2. argument: set 'short' for same width of frame title box and text box, else standard width
+	%% 3. argument: choose text width (number between 0 and 1); scales down width of graphic; 
+	%%				value below 0: graphic has full page width, no text box, reference line on top
+	%%				value [0,.15): graphic has full text width, no text box, reference line on bottom
+	%%				value [0.15,0.26): text box has defined width with small font size, graphic scaled to fit page width, reference/caption line on bottom
+	%%				value [0.26,1): text box has defined width with normal font size, graphic scaled to fit page width, reference/caption line on bottom
+	%% 4. argument: choose location of text, choose 'right' for text on right side, else text on left side								
+	%% 5. argument: file name of graphic (file path can be customer defined in preamble by \gPath)
+	%% 6. argument: reference/caption line text on bottom of page
+	%% body: text/graphics/formulas/etc. for text box
+	%%
+	%% example: 
+	%%	\begin{graphicsFrame}{Add Frame Title Here}{short}{0.7}{left}{graphic.jpg}{Caption of graphic.jpg} 
+	%%		Add body here 
+	%%	\end{graphicsFrame}
+	%%=====================================%%
+
+	\ifdim \dimexpr(#3\textwidth) <  \dimexpr(.0\textwidth) 
+	%% graphic with full paper width, no text %%
+		
+		\setbeamertemplate{footline}{}
+		\begin{frame}{#1 \strut}  %% 'strut' accounts for letters with descender
+
+			\vspace{-.01\textheight}
+
+			\begin{minipage}[t][.05\textheight]{\linewidth}
+				\usebeamerfont{caption}
+				\mbox{#6}
+			\end{minipage}
+
+			\begin{tikzpicture}[overlay]
+				\hspace{-0.5cm}
+				\node [anchor = north] at (\paperwidth/2,\paperheight*.025) {\includegraphics[width=\paperwidth]{\gPath #5}};
+  			\end{tikzpicture}
+
+		\end{frame}
+
+	\else
+
+		\ifdim \dimexpr(#3\textwidth) <  \dimexpr(.15\textwidth) 
+		%% graphic with full text width, no text %%
+
+			\begin{frame}{#1}
+
+				%% if no frame title is given, text height is increased %%
+				\ifx\insertframetitle\@empty
+					\vspace{.15\textheight}
+					\ifthenelse{\lengthtest{\beamer@paperheight=9cm}}
+					{
+						\setlength{\myskip}{.12\textheight} %% for 16:9
+					}{
+						\setlength{\myskip}{.116\textheight} %% for 4:3
+					}
+				\else
+					\setlength{\myskip}{0pt}
+				\fi
+
+				\noindent
+				\begin{minipage}[c][\dimexpr(.56\textheight+\myskip)][b]{\textwidth}
+					\includegraphics[width=\textwidth]{\gPath #5}
+				\end{minipage}
+
+				\vspace{.018\textheight}
+
+				\begin{minipage}[t][.05\textheight]{\linewidth}
+					\usebeamerfont{caption}	
+					\mbox{#6}
+				\end{minipage}
+
+			\end{frame}
+
+		\else
+		%% text box with defined width, graphic scaled to fit page width %%
+
+			%% define short frame title equal to the width of the text box %%
+			\ifthenelse{\equal{#2}{short}}
+			{
+				\ifthenelse{\equal{#4}{right}}
+				{
+					\setbeamertemplate{frametitle}
+					{
+						\begin{columns}
+			        				\begin{column}{\dimexpr(\textwidth-#3\textwidth)}
+							\end{column}
+
+							\begin{column}{\dimexpr(#3\textwidth)}
+								\begin{minipage}[t][.22\textheight][b]{\linewidth}
+            								\usebeamerfont{frametitle}
+									\textcolor{uniwienblue}
+           								\insertframetitle\strut\par
+								\end{minipage}
+								\vspace{-.24cm}	
+							\end{column}
+						\end{columns}
+					}
+				}{
+					\setbeamertemplate{frametitle}
+					{
+						\begin{columns}
+							\begin{column}{\dimexpr(#3\textwidth)}
+								\begin{minipage}[t][.22\textheight][b]{\linewidth}
+            								\usebeamerfont{frametitle}
+									\textcolor{uniwienblue}
+           								\insertframetitle \strut\par
+								\end{minipage}
+								\vspace{-.24cm}
+							\end{column}
+
+			        				\begin{column}{\dimexpr(\textwidth-#3\textwidth)}
+        							\end{column}
+						\end{columns}
+					}
+				}
+			}{}
+
+			\begin{frame}{#1}
+
+				%% if no frame title is given, text height is increased %%
+				\ifx\insertframetitle\@empty
+					\vspace{.15\textheight}
+					\ifthenelse{\lengthtest{\beamer@paperheight=9cm}}
+					{
+						\setlength{\myskip}{.12\textheight} %% for 16:9
+					}{
+						\setlength{\myskip}{.116\textheight} %% for 4:3
+					}
+				\else
+					\setlength{\myskip}{0pt}
+				\fi
+
+				\ifthenelse{\equal{#4}{right}}
+				{
+					%% text box right %%
+					\begin{columns}[T]
+
+				        		\begin{column}{\dimexpr(\textwidth-#3\textwidth)}
+           						\begin{minipage}[c][\dimexpr(.535\textheight+\myskip)][b]{\linewidth}
+								\includegraphics[width=\linewidth]{\gPath #5}
+							\end{minipage}
+
+							\vspace{.02\textheight}
+
+							\begin{minipage}[t][.05\textheight]{\linewidth}
+								\usebeamerfont{caption}
+								\mbox{#6}
+							\end{minipage}
+						\end{column}     
+   			
+						\begin{column}{\dimexpr(#3\textwidth)}
+							%% decrease font size for small text box %%
+							\ifdim \dimexpr(#3\textwidth) <  \dimexpr(.26\textwidth)
+								\setbeamerfont{itemize/enumerate body}{size={\fontsize{8}{11}}}
+								\setbeamertemplate{itemize item}{\tiny\raise1pt\hbox{\textbullet}}
+								\linespread{0.8}
+								\BODY
+							\else
+								\BODY	
+							\fi		
+                   					\end{column}
+
+		    			\end{columns}
+				}{
+					%% text box left %%
+					\begin{columns}[T]
+
+  		      				\begin{column}{\dimexpr(#3\textwidth)}
+							%% decrease font size for small text box %%
+							\ifdim \dimexpr(#3\textwidth) <  \dimexpr(.26\textwidth)
+								\setbeamerfont{itemize/enumerate body}{size={\fontsize{8}{11}}}
+								\setbeamertemplate{itemize item}{\tiny\raise1pt\hbox{\textbullet}}
+								\linespread{0.8}
+								\BODY
+							\else
+								\BODY	
+							\fi		            			
+ 		      				\end{column}
+
+	        					\begin{column}{\dimexpr(\textwidth-#3\textwidth)}
+     			      				\begin{minipage}[c][\dimexpr(.535\textheight+\myskip)][b]{\linewidth}
+								\includegraphics[width=\linewidth]{\gPath #5}
+							\end{minipage}
+
+							\vspace{.02\textheight}
+
+							\begin{minipage}[t][.05\textheight]{\linewidth}
+								\usebeamerfont{caption}
+								\mbox{#6}
+							\end{minipage}
+						\end{column}
+    		
+					\end{columns}
+				}
+
+			\end{frame}
+
+		\fi
+	\fi	
+}
+
+
+%% frame with two equally wide colums for 2 graphics with reference/caption lines on bottom and text box with adjustable text width %%
+\NewEnviron{graphicsFrame2}[6]%
+{%
+
+	%%=====================================%%
+	%% 1. argument: frame title (if empty, text box is increased)								
+	%% 2. argument: choose text width (number between 0 and 1); scales down width of graphics
+	%%				value below 0.1: graphics have full text width and reference/caption lines on bottom, no text box appears
+	%%				value [0.1,0.26): text box has defined width with small font size, graphics scaled to fit page width, reference/caption lines on bottom
+	%%				value [0.26,1): text box has defined width with normal font size, graphics scaled to fit page width, reference/caption lines on bottom
+	%% 3. argument: file name of 1. graphic (file path can be customer defined in preamble by \gPath)							
+	%% 4. argument: reference/caption line text for 1. graphic on bottom of page							
+	%% 5. argument: file name of 2. graphic (file path can be customer defined in preamble by \gPath)							
+	%% 6. argument: reference/caption line text for 2. graphic on bottom of page							
+	%% body: text/graphics/formulas/etc. for text box	
+	%%=====================================%%
+
+	\ifdim \dimexpr(#2\textwidth) <  \dimexpr(.10\textwidth) 
+
+		%% 2 graphics, no text box %%
+		\begin{frame}{#1}
+
+			%% if no frame title is given, text height is increased %%
+			\ifx\insertframetitle\@empty
+				\vspace{.15\textheight}
+				\ifthenelse{\lengthtest{\beamer@paperheight=9cm}}
+				{
+					\setlength{\myskip}{.12\textheight} %% for 16:9
+				}{
+					\setlength{\myskip}{.116\textheight} %% for 4:3
+				}
+			\else
+				\setlength{\myskip}{0pt}
+			\fi
+
+			\begin{columns}[T]
+					
+			        \begin{column}{\dimexpr(\textwidth/2)}
+           				\begin{minipage}[c][\dimexpr(.535\textheight+\myskip)][b]{\linewidth}
+						\includegraphics[width=\linewidth]{\gPath #3}
+					\end{minipage}
+
+					\vspace{.02\textheight}
+
+					\begin{minipage}[t][.05\textheight]{\linewidth}
+						\usebeamerfont{caption}
+						\mbox{#4}
+					\end{minipage}
+        				\end{column}    
+				
+				\begin{column}{\dimexpr(\textwidth/2)}
+           				\begin{minipage}[c][\dimexpr(.535\textheight+\myskip)][b]{\linewidth}
+						\includegraphics[width=\linewidth]{\gPath #5}
+					\end{minipage}
+
+					\vspace{.02\textheight}
+
+					\begin{minipage}[t][.05\textheight]{\linewidth}
+						\usebeamerfont{caption}
+						\mbox{#6}
+					\end{minipage}
+        				\end{column}    		
+
+	    		\end{columns}
+
+		\end{frame}
+
+	\else
+		
+		%% 2 graphics and text box %%
+		\begin{frame}{#1}
+
+			%% if no frame title is given, text height is increased %%
+			\ifx\insertframetitle\@empty
+				\vspace{.15\textheight}
+				\ifthenelse{\lengthtest{\beamer@paperheight=9cm}}
+				{
+					\setlength{\myskip}{.12\textheight} %% for 16:9
+				}{
+					\setlength{\myskip}{.116\textheight} %% for 4:3
+				}
+			\else
+				\setlength{\myskip}{0pt}
+			\fi
+
+			%% if 16:9 change skip %%
+			\ifthenelse{\lengthtest{\beamer@paperheight=9cm}}
+			{
+				\setlength{\myskipp}{0.005\textwidth} %% for 16:9
+			}{
+				\setlength{\myskipp}{0.015\textwidth} %% for 4:3
+			}
+
+			\begin{columns}[T]
+	
+			        \begin{column}{\dimexpr(.97\textwidth/2 -#2\textwidth/2)}
+           				\begin{minipage}[c][\dimexpr(.535\textheight+\myskip)][b]{\linewidth}
+						\includegraphics[width=\linewidth]{\gPath #3}
+					\end{minipage}
+
+					\vspace{.02\textheight}
+
+					\begin{minipage}[t][.05\textheight]{\linewidth}
+						\usebeamerfont{caption}
+						\mbox{#4}
+					\end{minipage}
+        				\end{column}    
+				
+				\begin{column}{\dimexpr(.97\textwidth/2 -#2\textwidth/2)}
+           				\begin{minipage}[c][\dimexpr(.535\textheight+\myskip)][b]{\linewidth}
+						\includegraphics[width=\linewidth]{\gPath #5}
+					\end{minipage}
+
+					\vspace{.02\textheight}
+
+					\begin{minipage}[t][.05\textheight]{\linewidth}
+						\usebeamerfont{caption}
+						\mbox{#6}
+					\end{minipage}
+        				\end{column}    	
+		
+				\begin{column}{\dimexpr(#2\textwidth-\myskipp)}
+					%% decrease font size for small text box %%
+					\ifdim \dimexpr(#2\textwidth) <  \dimexpr(.26\textwidth)
+						\setbeamerfont{normal text}{size={\fontsize{8}{11}}}
+						\setbeamerfont{itemize/enumerate body}{size={\fontsize{8}{11}}}
+						\setbeamertemplate{itemize item}{\tiny\raise1pt\hbox{\textbullet}}
+						\linespread{0.8}
+						\usebeamerfont{normal text}
+						\BODY
+					\else
+						\BODY	
+					\fi		      			
+       				\end{column}
+    		
+			\end{columns}
+
+		\end{frame}
+	\fi
+}
+
+
+%% frame at begin of a section with section title and graphic as well as subtitle (both optional) %%
+\NewEnviron{sectionFrame}[2]%
+{%
+
+	%%=====================================%%
+	%% 1. argument: file name of background graphic (file path can be customer defined in preamble by \gPath); if left empty, then white background with text on bottom				
+	%% 2. argument: subtitle text
+	%%  body: ignored in this frame environment	
+	%%=====================================%%
+	
+	%% set footline empty %%
+	\setbeamertemplate{footline}{}
+
+	\begin{frame}
+
+		
+		\IfFileExists{\gPath #1}
+		{
+
+			%% if no graphic for section frame is given %%
+			\vskip0.13\paperheight
+			\begin{minipage}[t][.1\textheight][b]{\textwidth}
+	            		\usebeamerfont{section in toc}
+				\textcolor{uniwienblue}
+           			\insertsection\par
+			\end{minipage}
+
+			\vskip0.026\paperheight
+
+			\begin{minipage}[t][.10\textheight][t]{\textwidth}
+            			\usebeamerfont{subsection in toc}
+            			#2
+			\end{minipage}
+
+			\begin{tikzpicture}[overlay]
+				\hspace{-0.5cm}
+				\node [anchor = north] at (\paperwidth/2,\paperheight*.041) {\includegraphics[width=\paperwidth]{\gPath #1}};
+  			\end{tikzpicture}
+
+		}{
+
+			%% if graphic for section frame is given %%
+			\vskip0.47\paperheight
+
+			\begin{minipage}[t][.2\textheight][b]{\textwidth}
+	            		\usebeamerfont{section in toc}
+				\textcolor{uniwienblue}
+           			\insertsection\par
+			\end{minipage}
+
+			\vskip0.026\paperheight
+
+			\begin{minipage}[t][.10\textheight][t]{\textwidth}
+            			\usebeamerfont{subsection in toc}
+            			#2
+			\end{minipage}
+
+		}
+
+	\end{frame}
+}
+
+
+%%===============%%
+%% Define table of contents %%
+%%===============%%
+
+\AtBeginSection%
+{
+  	\ifthenelse{\isundefined{\includeTocAtBeginSection}}{}
+	{ 
+    		\begin{frame}{Outline}
+     			     \tableofcontents[currentsection]
+    		\end{frame}
+	}
+}
+
+
+\mode
+<all>

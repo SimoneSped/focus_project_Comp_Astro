@@ -1,0 +1,201 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%  Die vorliegenden LaTeX-Folien stehen MitarbeiterInnen und Studierenden der Universität Wien
+%%  zur Verfügung und sind ausschließlich zur Verwendung in Forschung und Lehre der Universität  
+%%  Wien vorgesehen. Das Copyright der LaTeX-Vorlagen liegt bei der Universität Wien.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\mode<presentation>
+
+
+%%===================%%
+%% Define table of contents style %%
+%%===================%%
+
+\setbeamertemplate{section in toc}[sections numbered]
+
+
+%%===============%%
+%% Define background style %%
+%%===============%%
+
+\setbeamertemplate{background}
+{
+
+	%% for title page %%
+	\ifnum\c@framenumber=1  
+
+ 		\begin{tikzpicture}
+  	
+			\useasboundingbox (0,0) rectangle(\paperwidth,\paperheight);
+			
+			%% logo %%
+			\node  [anchor = west] at (\paperwidth*.01,\paperheight*.9) {\includegraphics[width=3cm]{logo_uni_wien}};
+						
+			%% no title background graphic %%
+			\ifnum\titleBackground=0
+
+				\ifthenelse{\lengthtest{\beamer@paperheight=9cm}}
+				{
+					\draw[thin] (0.5cm, 0.95cm) -- (\paperwidth-0.5cm, 0.95cm); %% for 16:9
+				}{
+					\draw[thin] (0.5cm, 1cm) -- (\paperwidth-0.5cm, 1cm); %% for 4:3
+				}
+			
+			%% title background graphic %%
+			\else
+
+				\ifnum\titleBackground=1  %% normal space for presentation title
+
+					\fill[uniwienblue] (0,0) rectangle(\paperwidth,\paperheight * .8);
+					\node [anchor = north] at (\paperwidth/2,\paperheight*.615) {\includegraphics[width=\paperwidth]{\gPath\graphicsTitleBackground}};
+
+				\else 					%% large space for presentation title
+
+					\fill[uniwienblue] (0,0) rectangle(\paperwidth,\paperheight * .825);
+					\node [anchor = north] at (\paperwidth/2,\paperheight*.565) {\includegraphics[width=\paperwidth]{\gPath\graphicsTitleBackground}};
+
+				\fi
+
+				%% white bar on bottom if author or additional logo defined %%
+				\ifthenelse{\isundefined{\authorText} \AND \isundefined{\logoTitleFooterR} \AND \isundefined{\logoTitleFooterM} \AND \isundefined{\logoTitleFooterL}}{}
+				{
+					\ifthenelse{\lengthtest{\beamer@paperheight=9cm}}
+					{
+						\fill[uniwienwhite] (0,0) rectangle(\paperwidth, 0.95cm); %% for 16:9
+					}{
+						\fill[uniwienwhite] (0,0) rectangle(\paperwidth, 1cm); %% for 4:3
+					}
+				}
+
+			\fi
+
+			\ifthenelse{\isundefined{\logoTitleFooterR}}{}
+			{
+				\node [anchor = east] at (\paperwidth*.97,\paperheight*.0525) {\includegraphics[height=0.6cm]{\gPath\logoTitleFooterR}};
+			}
+			\ifthenelse{\isundefined{\logoTitleFooterM}}{}
+			{
+				\node [anchor = east] at (\paperwidth*.80,\paperheight*.0525) {\includegraphics[height=0.6cm]{\gPath\logoTitleFooterM}};
+			}
+			\ifthenelse{\isundefined{\logoTitleFooterL}}{}
+			{
+				\node [anchor = east] at (\paperwidth*.63,\paperheight*.0525) {\includegraphics[height=0.6cm]{\gPath\logoTitleFooterL}};
+			}
+
+  		\end{tikzpicture}
+
+	%% not for title page %%
+	\else
+
+ 		\begin{tikzpicture}
+  	
+			\useasboundingbox (0,0) rectangle(\paperwidth,\paperheight);
+
+			%% logo %%
+			\node  [anchor = west] at (\paperwidth*.016,\paperheight*.91) {\includegraphics[width=2.2cm]{logo_uni_wien}};		
+			
+			\ifthenelse{\lengthtest{\beamer@paperheight=9cm}}%
+			{
+				\draw[thin] (0.5cm, 0.9cm) -- (\paperwidth-0.5cm, 0.9cm);
+			}{
+				\draw[thin] (0.5cm, 0.95cm) -- (\paperwidth-0.5cm, 0.95cm);
+			}
+  		\end{tikzpicture}
+
+	\fi	
+
+}
+
+%%==============%%
+%% Define title page text %%
+%%==============%%
+
+\defbeamertemplate*{title page}{uniwien2017}[1][\raggedleft]
+{
+	%% no title background graphic %%
+	\ifnum\titleBackground=0
+
+		\vskip0.51\paperheight
+		\begin{minipage}[b][.2\textheight][b]{\textwidth}
+	            	\usebeamerfont{title}
+			\textcolor{uniwienblue}
+           		\inserttitle\par
+		\end{minipage}
+
+		\vskip0.016\paperheight
+		\begin{minipage}[t][.10\textheight][t]{\textwidth}
+            		\usebeamerfont{subtitle}
+	 		\textcolor{uniwienblack}
+            		\insertsubtitle\par
+		\end{minipage}
+
+		\ifthenelse{\isundefined{\authorText}}{}
+		{
+		
+			\ifthenelse{\lengthtest{\beamer@paperheight=9cm}}%
+			{
+				\vskip0.035\paperheight
+			}{
+				\vskip0.038\paperheight
+			}
+		
+			\begin{minipage}[t][.08\textheight][c]{.6\textwidth}
+            			\usebeamerfont{author}
+	 			\textcolor{uniwienblack}
+            			\authorText\par
+			\end{minipage}
+
+		}
+
+	%% with title background graphic %%
+	\else
+
+		\ifnum\titleBackground=1 
+			\vskip0.17\paperheight
+		\else
+			\vskip0.19\paperheight
+		\fi
+		
+		\begin{minipage}[b][.1\textheight][b]{\textwidth}
+	            	\usebeamerfont{title}
+			\textcolor{uniwienwhite}
+           		\inserttitle
+		\end{minipage}
+
+		\vskip0.016\paperheight
+		\begin{minipage}[t][.10\textheight][t]{\textwidth}
+            		\usebeamerfont{subtitle}
+	 		\textcolor{uniwienwhite}
+            		\insertsubtitle\par
+		\end{minipage}
+
+		\ifthenelse{\isundefined{\authorText}}{}
+		{
+
+			\ifnum\titleBackground=2 
+				\vskip-0.02\paperheight
+			\fi
+
+			\ifthenelse{\lengthtest{\beamer@paperheight=9cm}}%
+			{
+				\vskip0.474\paperheight
+			}{
+				\vskip0.477\paperheight
+			}		
+
+			\begin{minipage}[t][.08\textheight][c]{.5\textwidth}
+    		        		\usebeamerfont{author}
+		 			\textcolor{uniwienblack}
+     		       		\authorText\par
+			\end{minipage}
+
+		}
+
+	\fi
+}
+
+\mode<all>
