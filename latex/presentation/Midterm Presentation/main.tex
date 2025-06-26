@@ -22,7 +22,7 @@
 %% ======== required inputs ========
 
 	%% ====== title page ======
-	\title{Midterm Presentation: \\ Characterizing the fractal dimension of molecular clouds}											%% Presentation Title
+	\title{Focus Project: \\ On Pseudo-Random Number Generators}											%% Presentation Title
 	\newcommand{\titleBackground}{0}    						%% Background graphic: 0 = no; 1 = yes; 2 = yes with more text space
 	\newcommand{\gPath}{Graphics/}									%% set graphics path
 	\newcommand{\graphicsTitleBackground}{Lombardi2014.png}   %% Filename of background graphic
@@ -31,8 +31,8 @@
 %% ======== optional inputs ========
 	
 	%% ====== title page ======
-	\subtitle{Supervisors: Assoz. Prof. Alvaro Hacar, Univ.-Prof. Oliver Hahn \\ 2025S 280551-1 Research Seminar, 07/05/2025}                   					%% (optional) Subtitle, comment out to avoid include
-	\newcommand{\authorText}{Simone Spedicato, B.Sc.}				%% (optional) Author
+	\subtitle{Simone Spedicato, BSc \\ 2025S 280522-1 Methods of Computational Astrophysics, 30/06/2025}                   					%% (optional) Subtitle, comment out to avoid include
+	% \newcommand{\authorText}{Simone Spedicato, B.Sc.}				%% (optional) Author
 	\newcommand{\logoTitleFooterR}{logo_astro.jpg}  %% (optional) additional logo in title page footer, most right
 	%\newcommand{\logoTitleFooterM}{grey}  %% (optional) additional logo in title page footer, more right (if horizontal spacing not adequate, save multiple logos in one file, use \logoTitleFooterR)
 	%\newcommand{\logoTitleFooterL}{grey}  %% (optional) additional logo in title page footer, right (if horizontal spacing not adequate, save multiple logos in one file, use \logoTitleFooterR)
@@ -84,23 +84,14 @@
 % Slide 2: introduction -- setting the stage, big picture
 
 \begin{textFrame}{Introduction}{}{\href{https://ui.adsabs.harvard.edu/abs/1996ApJ...471..816E/abstract}{A Fractal Origin for the Mass Spectrum of Interstellar Clouds (Elmegreen \& Falgarone, 1996)}}
-	\textbf{Rationale:}
-	\begin{itemize}
-		\item Molecular clouds exhibit a filamentary, self-similar structure that governs their hierarchical organization. (Elmegreen \& Falgarone, 1996)
-		\item Recent observations reveal filaments break into smaller sub-filaments at high resolutions, reflecting the turbulent nature of interstellar gas and influencing star formation processes.
-	\end{itemize}
 	\textbf{Goals:}
-	\begin{itemize}
-		\item Characterize fractal properties of the Orion Molecular Cloud using topological methods.
-		\item Investigate how fractal properties change with increasing column density.
-		\item Explore the connection with mass-size relationship and star formation modes (isolated vs. clustered).
-	\end{itemize}
+	\textbf{Methods:}
 \end{textFrame}
 
 % Slide 3: Methods/techniques
 
 % Motes: Herschel dust emission maps (a bit about these), resolution up to 36 arcsec, Ref: Lombardi et al. 2014
-\begin{graphicsFrame}{Methods}{short}{0.81}{left}{Orion_A_pillars}{\textcopyright~ESA/Herschel/Ph. André et al.}
+\begin{graphicsFrame}{First Results}{short}{0.81}{left}{Orion_A_pillars}{\textcopyright~ESA/Herschel/Ph. André et al.}
 
 	Fractal dimension $D$ provides a quantitative measure of border complexity.
 
@@ -122,25 +113,6 @@
 	\end{itemize}
 \end{graphicsFrame}
 
-
-% Slide 4: Preliminary or anticipated results 
-
-\begin{graphicsFrame}{First Results and Outlook}{short}{0.7}{left}{Fractal_Dimension_combined}{\textbf{Figure:} $D$ for increasing column density.}
-
-	\begin{itemize}
-		\item Fractal dimension increases with column density in both Orion A and B.
-		\item Correlation observed with the \textbf{mass–size} relation.
-		\item Collapse tracked by fractal dimension.
-	\end{itemize}
-	\vspace{0.8em}
-	\textit{Work in Progress:}
-	\begin{itemize}
-		\item Testing the robustness of the method.
-		\item Exploring links to star formation modes (isolated vs. clustered).
-		\item Comparison with current state-of-the-art models.
-	\end{itemize}
-
-\end{graphicsFrame}
 
 %% ====== Slides Templates ======		
 

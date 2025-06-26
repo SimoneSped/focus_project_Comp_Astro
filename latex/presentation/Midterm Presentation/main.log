@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.22)  7 MAY 2025 08:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.22)  26 JUN 2025 11:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/User/Documents/GitHub/Master-Thesis-LaTeX/Presentations/main.tex
-(c:/Users/User/Documents/GitHub/Master-Thesis-LaTeX/Presentations/main.tex
+**"c:/Users/User/Documents/GitHub/focus_project_Comp_Astro/latex/presentation/Midterm Presentation/main.tex"
+(c:/Users/User/Documents/GitHub/focus_project_Comp_Astro/latex/presentation/Midterm Presentation/main.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-03-26>
 (C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/beamer\beamer.cls
@@ -740,10 +740,6 @@ Dictionary: translator-theorem-dictionary, Language: English
 \c@mv@tabular=\count362
 \c@mv@boldtabular=\count363
  (main.nav)
-Overfull \vbox (1.27678pt too high) detected at line 72
- []
-
-
 
 <logo_uni_wien.jpg, id=12, 481.8pt x 240.9pt>
 File: logo_uni_wien.jpg Graphic file (type jpg)
@@ -758,33 +754,33 @@ Package pdftex.def Info: Graphics/logo_astro.jpg  used on input line 72.
 [1
 
 {C:/Users/User/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/carlito/crlt_ys3vdn.enc} <./logo_uni_wien.jpg> <./Graphics/logo_astro.jpg>]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 98.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 89.
  (C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 98.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 89.
  (C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Trying to load font information for TS1+Crlt-LF on input line 98.
- (C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/carlito\ts1crlt-lf.fd
-File: TS1Crlt-LF.fd 2022/10/05 (autoinst) Font definitions for TS1/Crlt-LF.
 )
 
 File: logo_uni_wien.jpg Graphic file (type jpg)
 <use logo_uni_wien.jpg>
-Package pdftex.def Info: logo_uni_wien.jpg  used on input line 98.
+Package pdftex.def Info: logo_uni_wien.jpg  used on input line 89.
 (pdftex.def)             Requested size: 62.59596pt x 31.29604pt.
 [2
 
-{C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/carlito/crlt_j4hweq.enc}]
-<Graphics/Orion_A_pillars.jpg, id=31, 1927.2pt x 3577.365pt>
+]
+LaTeX Font Info:    Trying to load font information for TS1+Crlt-LF on input line 114.
+ (C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/carlito\ts1crlt-lf.fd
+File: TS1Crlt-LF.fd 2022/10/05 (autoinst) Font definitions for TS1/Crlt-LF.
+)
+<Graphics/Orion_A_pillars.jpg, id=30, 1927.2pt x 3577.365pt>
 File: Graphics/Orion_A_pillars.jpg Graphic file (type jpg)
 <use Graphics/Orion_A_pillars.jpg>
-Package pdftex.def Info: Graphics/Orion_A_pillars.jpg  used on input line 123.
+Package pdftex.def Info: Graphics/Orion_A_pillars.jpg  used on input line 114.
 (pdftex.def)             Requested size: 78.38837pt x 145.47202pt.
 
-Overfull \hbox (6.9031pt too wide) in paragraph at lines 123--123
+Overfull \hbox (6.9031pt too wide) in paragraph at lines 114--114
 [][] 
  []
 
@@ -792,59 +788,11 @@ Overfull \hbox (6.9031pt too wide) in paragraph at lines 123--123
 
 File: logo_uni_wien.jpg Graphic file (type jpg)
 <use logo_uni_wien.jpg>
-Package pdftex.def Info: logo_uni_wien.jpg  used on input line 123.
+Package pdftex.def Info: logo_uni_wien.jpg  used on input line 114.
 (pdftex.def)             Requested size: 62.59596pt x 31.29604pt.
 [3
 
- <./Graphics/Orion_A_pillars.jpg>]
-<Graphics/Fractal_Dimension_combined.png, id=42, 493.6041pt x 562.2606pt>
-File: Graphics/Fractal_Dimension_combined.png Graphic file (type png)
-<use Graphics/Fractal_Dimension_combined.png>
-Package pdftex.def Info: Graphics/Fractal_Dimension_combined.png  used on input line 143.
-(pdftex.def)             Requested size: 123.77075pt x 140.98518pt.
-LaTeX Font Info:    Calculating math sizes for size <6.5> on input line 143.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <6.5> not available
-(Font)              size <6> substituted on input line 143.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <4.54997> not available
-(Font)              size <5> substituted on input line 143.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <6.5> not available
-(Font)              size <6> substituted on input line 143.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <4.54997> not available
-(Font)              size <5> substituted on input line 143.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <3.25> not available
-(Font)              size <5> substituted on input line 143.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <6.5> not available
-(Font)              size <6> substituted on input line 143.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <4.54997> not available
-(Font)              size <5> substituted on input line 143.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <3.25> not available
-(Font)              size <5> substituted on input line 143.
-
-
-
-File: logo_uni_wien.jpg Graphic file (type jpg)
-<use logo_uni_wien.jpg>
-Package pdftex.def Info: logo_uni_wien.jpg  used on input line 143.
-(pdftex.def)             Requested size: 62.59596pt x 31.29604pt.
-[4
-
- <./Graphics/Fractal_Dimension_combined.png>]
+{C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/carlito/crlt_j4hweq.enc} <./Graphics/Orion_A_pillars.jpg>]
 \tf@nav=\write6
 \openout6 = `main.nav'.
 
@@ -859,26 +807,21 @@ Package pdftex.def Info: logo_uni_wien.jpg  used on input line 143.
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-03-26>
  ***********
-
-
-LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 1.75pt have occurred.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 25666 strings out of 469958
- 514018 string characters out of 5470297
- 862361 words of memory out of 5000000
- 51894 multiletter control sequences out of 15000+600000
- 778029 words of font info for 99 fonts, out of 8000000 for 9000
+ 25619 strings out of 469958
+ 513445 string characters out of 5470297
+ 861968 words of memory out of 5000000
+ 51855 multiletter control sequences out of 15000+600000
+ 751555 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,20n,123p,444b,954s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/google/carlito/Crlt-Bold.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/google/carlito/Crlt-Italic.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/google/carlito/Crlt-Regular.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (4 pages, 1285983 bytes).
+ 128i,20n,123p,477b,954s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/google/carlito/Crlt-Bold.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/google/carlito/Crlt-Italic.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/google/carlito/Crlt-Regular.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on main.pdf (3 pages, 1149468 bytes).
 PDF statistics:
- 92 PDF objects out of 1000 (max. 8388607)
- 9 named destinations out of 1000 (max. 500000)
- 63 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 79 PDF objects out of 1000 (max. 8388607)
+ 7 named destinations out of 1000 (max. 500000)
+ 58 words of extra memory for PDF output out of 10000 (max. 10000000)
 
