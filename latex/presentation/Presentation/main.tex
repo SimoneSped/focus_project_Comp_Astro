@@ -40,7 +40,7 @@
 	%% ====== footer ======
 	% \newcommand{\textFooter}{Footer text (author, presentation title, version, etc.)} %% (optional) Text for footline, e.g. title, comment out lines to avoid include, max. 1 line
 	\newcommand{\slideNumberLabelFooter}{Slide}    	%% Page/Slide/Folie/Seite
-	\date{7 May 2025}              									%% Date, comment out to get current date
+	\date{30 June 2025}              									%% Date, comment out to get current date
 
 	%% ====== header ====== 
 	%\newcommand{\sectionHeader}{Section (optional)} %% (optional) Text before section number, e.g. Section or Kapitel; comment out to avoid headline
@@ -83,33 +83,31 @@
 
 % Slide 2: introduction -- setting the stage, big picture
 
-\begin{textFrame}{Introduction}{}{\href{https://ui.adsabs.harvard.edu/abs/1996ApJ...471..816E/abstract}{A Fractal Origin for the Mass Spectrum of Interstellar Clouds (Elmegreen \& Falgarone, 1996)}}
+\begin{graphicsFrame}{Introduction}{short}{0.62}{left}{random_walk}{Random walk in 2D (Wikimedia Commons, CC BY-SA 4.0)}
 	\textbf{Goals:}
-	\textbf{Methods:}
-\end{textFrame}
-
-% Slide 3: Methods/techniques
-
-% Motes: Herschel dust emission maps (a bit about these), resolution up to 36 arcsec, Ref: Lombardi et al. 2014
-\begin{graphicsFrame}{First Results}{short}{0.81}{left}{Orion_A_pillars}{\textcopyright~ESA/Herschel/Ph. André et al.}
-
-	Fractal dimension $D$ provides a quantitative measure of border complexity.
-
-	\vspace{0.8em}
-
-	\textbf{Perimeter–Area Relation:}
-	\[
-		P \propto A^{D/2}
-	\] 
-	(e.g., \href{https://ui.adsabs.harvard.edu/abs/1982mfmb.book.....M/abstract}{\textit{The Fractal Geometry of Nature, Mandelbrot 1982}})
-	
-	\vspace{0.8em}
-	
-	\textbf{Approach:}
 	\begin{itemize}
-		\item Data: Herschel dust emission maps of \textit{Orion} (\href{https://ui.adsabs.harvard.edu/abs/2014A&A...566A..45L/abstract}{\textit{Lombardi et al., 2014}}).
-		\item Measure perimeter and area of each contour.
-		\item The method allows one to pierce through the cloud and measure how border complexity evolves with increasing column density.
+		\item Explore how psuedo-random number generators (PRNGs) work.
+		\item Test the limitations of various PRNGs. 
+		\item Apply PRNGs to the modeling of a star cluster.
+	\end{itemize}
+	\vspace{0.8em}
+	\textbf{Methods:}
+	\begin{itemize}
+		\item Literature review on PRNGs.
+		\item Implement PRNGs and test suites in Python.
+		\item Simulate a star cluster using PRNGs.
+	\end{itemize}
+\end{graphicsFrame}
+
+\begin{graphicsFrame}{Outlook}{short}{0.62}{left}{random_walk}{Random walk in 2D (Wikimedia Commons, CC BY-SA 4.0)}
+	\textbf{Done:}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+	\vspace{0.8em}
+	\textbf{Next Steps:}
+	\begin{itemize}
+		\item 
 	\end{itemize}
 \end{graphicsFrame}
 
