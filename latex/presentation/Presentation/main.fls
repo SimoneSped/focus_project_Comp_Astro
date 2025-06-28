@@ -460,9 +460,12 @@ INPUT C:\Users\User\AppData\Local\Programs\MiKTeX\fonts\vf\google\carlito\Crlt-l
 INPUT C:\Users\User\AppData\Local\Programs\MiKTeX\fonts\tfm\google\carlito\Crlt-lf-t1--base.tfm
 INPUT C:\Users\User\AppData\Local\Programs\MiKTeX\fonts\vf\google\carlito\Crlt-lf-t1.vf
 INPUT C:\Users\User\AppData\Local\Programs\MiKTeX\fonts\tfm\google\carlito\Crlt-lf-t1--base.tfm
-INPUT .\Graphics\random_walk.png
-INPUT .\Graphics\random_walk.png
-INPUT .\Graphics\random_walk.png
+INPUT .\Graphics\simulations.png
+INPUT .\Graphics\simulations.png
+INPUT .\Graphics\simulations.png
+INPUT .\Graphics\simulations.png
+INPUT .\Graphics\simulations.png
+INPUT .\Graphics\simulations.png
 INPUT .\logo_uni_wien.jpg
 INPUT .\logo_uni_wien.jpg
 INPUT .\logo_uni_wien.jpg

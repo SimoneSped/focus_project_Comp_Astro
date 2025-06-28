@@ -92,3 +92,12 @@ def birthday_spacings_test(prng_func, N=10000, bins=100):
     else:
         print("High number of collisions, possible non-randomness.")
 
+    # Visualization of quantized spacings
+    plt.figure()
+    plt.hist(quantized_spacings, bins=bins, color='skyblue', edgecolor='black')
+    plt.title("Histogram of Quantized Spacings")
+    plt.xlabel("Quantized Spacing Bin")
+    plt.ylabel("Frequency")
+    plt.tight_layout()
+    plt.show()
+
